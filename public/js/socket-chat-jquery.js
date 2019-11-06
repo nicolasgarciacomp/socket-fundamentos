@@ -104,7 +104,7 @@ divUsuarios.on('click', 'a', function() {
 
 salirSala.on('click', function(e) {
 	socket.emit('disconnect');
-	var url = "http://localhost:8080/index.html"; 
+	var url = "https://app-nico-chat.herokuapp.com/"; 
 	$(location).attr('href',url);
 });
 
