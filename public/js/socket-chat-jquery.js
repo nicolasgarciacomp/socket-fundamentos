@@ -41,7 +41,11 @@ function renderUsuarios(personas) {
 function renderMensajes(mensaje, yo) {
 	var html = '';
 	var fecha = new Date(mensaje.fecha);
-	var hora = fecha.getHours() + ':' + fecha.getMinutes();
+	var minutos = fecha.getMinutes();
+	if(minutos <= 9) {
+		minutos = '0' + minutos;
+	}
+	var hora = fecha.getHours() + ':' + minutos;
 	var adminClass = 'info';
 
 	if(mensaje.nombre === 'Administrador') {
