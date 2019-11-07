@@ -127,3 +127,17 @@ formEnviar.on('submit', function(e) {
 		scrollBottom();
 	});
 });
+
+$('#nuevaSala').on('change', function() {
+	var nuevaSala = this.value;
+	socket.emit('disconnect');
+	var url = 'https://app-nico-chat.herokuapp.com/chat.html?nombre='+ nombre +'&sala='+ nuevaSala +'&genero='+ genero +'&terminos=on';
+	$(location).attr('href',url);
+});
+
+$('#enviaNNick').on('click', function() {
+	var nuevoNick = $('#nuevoNick').val();
+	socket.emit('disconnect');
+	var url = 'https://app-nico-chat.herokuapp.com/chat.html?nombre='+ nuevoNick +'&sala='+ sala +'&genero='+ genero +'&terminos=on';
+	$(location).attr('href',url);
+});

@@ -26,25 +26,25 @@
         <!-- ============================================================== -->
         <!-- Page wrapper  -->
         <!-- ============================================================== -->
-        <div class="page-wrapper">
+        <div class="page-wrapper" id="page-wrapper">
             <!-- ============================================================== -->
             <!-- Container fluid  -->
             <!-- ============================================================== -->
-            <div class="container-fluid">
+            <div class="container-fluid" id="container-fluid">
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
-                <div class="row animated fadeIn">
-                    <div class="col-12">
-                        <div class="card m-b-0">
+                <div class="row animated fadeIn" id="ventana1">
+                    <div class="col-12" id="ventana2">
+                        <div class="card m-b-0" id="ventana3">
                             <!-- .chat-row -->
-                            <div class="chat-main-box">
+                            <div class="chat-main-box" id="ventana4">
                                 <!-- .chat-left-panel -->
-                                <div class="chat-left-aside">
+                                <div class="chat-left-aside" id="chat-left-aside">
                                     <div class="open-panel"><i class="ti-angle-right"></i></div>
-                                    <div class="chat-left-inner">
+                                    <div class="chat-left-inner" id="chat-left-inner">
                                         <div class="form-material">
-                                            <button class="btn btn-block btn-lg btn-danger btn-rounded" id="salirSala" type="submit">Salir de la sala</button>
+                                            <button class="btn btn-block btn-lg btn-danger" id="salirSala" type="submit">Salir de la sala</button>
                                         </div>
                                         <ul class="chatonline style-none" id="divUsuarios">
                                         </ul>
@@ -52,8 +52,23 @@
                                 </div>
                                 <!-- .chat-left-panel -->
                                 <!-- .chat-right-panel -->
-                                <div class="chat-right-aside">
-                                    <div class="chat-main-header">
+                                <div class="chat-right-aside" id="chat-right-aside">
+                                    <p id="p-nuevaSala">Cambiar de sala:</p>
+                                    <select class="form-control" required=""name="nuevaSala" id="nuevaSala">
+                                        <option>Argentina</option>
+                                        <option>Brasil</option>
+                                        <option>Chile</option>
+                                        <option>Colombia</option>
+                                        <option>Ecuador</option>
+                                        <option>Paraguay</option>
+                                        <option>Perú</option>
+                                        <option>Venezuela</option>
+                                        <option>Uruguay</option>
+                                    </select>
+                                    <p id="p-nuevaSala">Cambiar nickname:</p>
+                                    <input class="form-control" type="text" required="" placeholder="Nombre de usuario" name="nombre" autocomplete="off" id="nuevoNick">
+                                    <button class="btn btn-primary btn-info" type="submit" id="enviaNNick">Cambiar</button>
+                                    <div class="chat-main-header" id="chat-main-header">
                                         <div class="p-20 b-b" id="tituloChat">
                                             
                                         </div>
@@ -62,7 +77,7 @@
                                         <ul class="chat-list p-20" id="divChatbox">
                                         </ul>
                                     </div>
-                                    <div class="card-body b-t">
+                                    <div class="card-body b-t" id="card-body">
                                         <form id="formEnviar">
                                         <div class="row">
                                             <div class="col-8">

@@ -7,14 +7,14 @@ File: scss
 /**
  * Table Of Content
  *
- * 	1. Globals
- *	2. Headers
- *	3. Navigations
- *	4. Banners
- *	5. Footers
- *	6. app
- *	7. Widgets
- *	8. Custom Templates
+ *  1. Globals
+ *  2. Headers
+ *  3. Navigations
+ *  4. Banners
+ *  5. Footers
+ *  6. app
+ *  7. Widgets
+ *  8. Custom Templates
  */
 /*
 Template Name: Admin Pro Admin
@@ -5887,3 +5887,64 @@ File: scss
     text-align: center;
     margin-top: 10px;
     overflow: hidden; } }
+
+ /* Ajustar ventana 
+  #container-fluid {
+    
+  }
+
+  #ventana1 {
+    
+  }
+
+  #ventana2 {
+    
+  }
+
+  #ventana3 {
+    
+  }
+
+  #ventana4 {
+    height: 560px;
+  }
+
+  .chat-rbox {
+    
+  }
+
+  #divChatBox {
+    height: 560px;
+  }
+
+  #chat-left-aside {
+    top: 202px;
+    height: 560px;
+
+  }
+
+  #chat-right-aside {
+    
+  }
+
+  #chat-left-inner {
+    top: 200px;
+    height: 560px;
+  }
+
+  #divUsuarios {
+    height: 560px;
+  }
+
+  #card-body {
+    
+  }
+
+  #tituloChat {
+    
+  }
+
+  #chat-main-header {
+
+  }
+*/

@@ -12,3 +12,35 @@
 textarea {
     width: 100%;
 }
+
+#txtMensaje {
+	width: 800px;
+}
+
+#nuevaSala {
+	margin-top: 10px;
+	width: 200px;
+	float: left;
+}
+
+#p-nuevaSala {
+	float: left;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+#nuevoNick {
+	margin-top: 10px;
+	width: 200px;
+	float: left;
+}
+
+#enviaNNick {
+	width: 130px;
+	height: 40px;
+	margin-top: 9px;
+	margin-left: 5px;
+	text-align: center;
+}
