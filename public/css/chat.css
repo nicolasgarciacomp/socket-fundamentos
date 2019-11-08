@@ -13,7 +13,7 @@ textarea {
     width: 100%;
 }
 
-#txtMensaje {
+#txtMensaje #cl-text-mensaje {
 	width: 800px;
 }
 
