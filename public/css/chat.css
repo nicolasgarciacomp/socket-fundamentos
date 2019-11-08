@@ -42,5 +42,15 @@ textarea {
 	height: 40px;
 	margin-top: 9px;
 	margin-left: 5px;
+	margin-right: 20px;
+	text-align: center;
+	float: left;
+}
+
+#salirSala {
+	width: 130px;
+	height: 40px;
+	margin-top: 9px;
+	margin-left: 15px;
 	text-align: center;
 }
