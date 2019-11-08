@@ -13,8 +13,8 @@ textarea {
     width: 100%;
 }
 
-#txtMensaje #cl-text-mensaje {
-	width: 800px;
+#txtMensaje, #cl-text-mensaje {
+	width: 870px;
 }
 
 #nuevaSala {
