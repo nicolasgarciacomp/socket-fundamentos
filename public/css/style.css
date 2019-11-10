@@ -5888,29 +5888,42 @@ File: scss
     margin-top: 10px;
     overflow: hidden; } }
 
- /* Ajustar ventana 
+  /* 10- 11 */
+  #loginBox {
+    top: 45px;
+  }
+
+  #btIngresar-0 {
+    margin-bottom: 15px;
+  }
+
+  #btIngresar-1 {
+    padding-bottom: 15px;
+  }
+
+  /* Ajustar ventana
   #container-fluid {
-    
+    height: 100%;
   }
 
   #ventana1 {
-    
+    height: 100%;
   }
 
   #ventana2 {
-    
+    height: 100%;
   }
 
   #ventana3 {
-    
+    height: 100%;
   }
 
   #ventana4 {
-    height: 560px;
+    height: 100%;
   }
 
   .chat-rbox {
-    
+    height: 100%;
   }
 
   #divChatBox {
