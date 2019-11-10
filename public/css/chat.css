@@ -13,9 +13,11 @@ textarea {
     width: 100%;
 }
 
+/*
 #txtMensaje, #cl-text-mensaje {
 	width: 870px;
 }
+*/
 
 #nuevaSala {
 	margin-top: 10px;
@@ -53,4 +55,13 @@ textarea {
 	margin-top: 9px;
 	margin-left: 15px;
 	text-align: center;
+}
+
+#idioma {
+	width: 150px;
+}
+
+#cl-select {
+	top: 92px;
+	left: 20px;
 }
