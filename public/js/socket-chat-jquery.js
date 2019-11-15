@@ -2,6 +2,7 @@ var params = new URLSearchParams(window.location.search);
 var nombre = params.get('nombre');
 var sala = params.get('sala');
 var genero = params.get('genero');
+var voyATraducir = false;
 
 // Referencias de jQuery
 var divUsuarios = $('#divUsuarios');
@@ -15,6 +16,7 @@ var salirSala = $('#salirSala');
 function renderUsuarios(personas) {
 	var html = '';
 	var html2 = '';
+	var persOrdenadas = personas.sort();
 
 	html += '<li>';
     html += 	'<a href="javascript:void(0)" class="active"> Chat de <span> '+ params.get('sala') +'</span></a>';
@@ -22,15 +24,15 @@ function renderUsuarios(personas) {
 
     html2 += '<h3 class="box-title">Sala de chat <small>'+ params.get('sala') +'</small></h3>';
 
-    for(var i = 0; i < personas.length; i++) {
+    for(var i = 0; i < persOrdenadas.length; i++) {
     	var image = 'n';
-    	if(personas[i].genero === 'Hombre') {
+    	if(persOrdenadas[i].genero === 'Hombre') {
 			image = 'h';
-		} else if(personas[i].genero === 'Mujer') {
+		} else if(persOrdenadas[i].genero === 'Mujer') {
 			image = 'm';
 		}
-    	html += '<li>';
-        html +=		'<a data-id="'+ personas[i].id +'" href="javascript:void(0)"><img src="assets/images/users/'+ image +'.jpg" alt="user-img" class="img-circle"> <span>'+ personas[i].nombre +'<small class="text-success">online</small></span></a>';
+    	html += '<li class="'+ persOrdenadas[i].id +'" id="'+ persOrdenadas[i].nombre +'">';
+        html +=		'<a data-id="'+ persOrdenadas[i].id +'" href="javascript:void(0)"><img src="assets/images/users/'+ image +'.jpg" alt="user-img" class="img-circle"> <span>'+ persOrdenadas[i].nombre +'<small class="text-success">online</small></span></a>';
     	html += '</li>';
     }
 
@@ -53,12 +55,6 @@ function renderMensajes(mensaje, yo) {
 	}
 
 	if(yo) {
-		var image = 'n';
-    	if(genero === 'Hombre') {
-			image = 'h';
-		} else if(genero === 'Mujer') {
-			image = 'm';
-		}
 		html += '<li class="reverse">';
 	    html += 	'<div class="chat-content">';
 	    html += 		'<h5>'+ mensaje.nombre +'</h5>';
@@ -103,13 +99,26 @@ divUsuarios.on('click', 'a', function() {
 	var id = $(this).data('id');
 	if(id) {
 		console.log(id);
+		$('.'+id+'').css('background-color', '#FFF')
+		$('.'+id+' span').css('color', '#67757c');
+	}
+});
+
+divUsuarios.on('dblclick', 'a', function() {
+	var id = $(this).data('id');
+	if(id) {
+		console.log(id);
+		socket.emit('mensajePrivado', {
+			mensaje: txtMensaje.val(),
+			para: id
+		});
 	}
 });
 
 salirSala.on('click', function(e) {
 	socket.emit('disconnect');
 	var url = "https://app-nico-chat.herokuapp.com/"; 
-	$(location).attr('href',url);
+	$(location).attr('href', url);
 });
 
 formEnviar.on('submit', function(e) {
@@ -118,6 +127,7 @@ formEnviar.on('submit', function(e) {
 		return;
 	}
 
+	//traducir(txtMensaje.val());
 	socket.emit('crearMensaje', {
 		usuario: nombre,
 		mensaje: txtMensaje.val()
@@ -132,17 +142,31 @@ $('#nuevaSala').on('change', function() {
 	var nuevaSala = this.value;
 	socket.emit('disconnect');
 	var url = 'https://app-nico-chat.herokuapp.com/chat.html?nombre='+ nombre +'&sala='+ nuevaSala +'&genero='+ genero +'&terminos=on';
-	$(location).attr('href',url);
+	$(location).attr('href', url);
 });
 
 $('#enviaNNick').on('click', function() {
 	var nuevoNick = $('#nuevoNick').val();
 	socket.emit('disconnect');
 	var url = 'https://app-nico-chat.herokuapp.com/chat.html?nombre='+ nuevoNick +'&sala='+ sala +'&genero='+ genero +'&terminos=on';
-	$(location).attr('href',url);
+	$(location).attr('href', url);
 });
 
 $('#idioma').on('change', function() {
 	var idioma = this.value;
 	console.log(idioma);
+	voyATraducir = true;
 });
+
+function traducir(mensaje) {
+	var mensajeTraducido;
+	//if(idioma === 'Inglés') {
+		var url = "https://translate.googleapis.com/translate_a/single?client=gtx&sl="+ "auto" + "&tl=" + "gente" +"como"+ "andan" + "&dt=t&source=bubble&q=" + encodeURI(mensaje);
+
+		$.getJSON(url, function(data) {
+			mensajeTraducido = data[0][0][0];
+			console.log(data[0][0][0]);
+		});		
+	//}
+	return mensajeTraducido;
+}

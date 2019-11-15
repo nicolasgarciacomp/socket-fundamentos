@@ -1,24 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Chat</title>
+    <title>Traduce Chat | Chatea con personas de todo el mundo grátis</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Page CSS -->
+    <link href="css/pages/chat-app-page.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/chat.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+
+    <!-- You can change the theme colors from here -->
+    <link href="css/colors/default-dark.css" id="theme" rel="stylesheet">
 </head>
-
-<body>
-
-
-
-
-
+<body class="fix-header single-column card-no-border fix-sidebar">
+    <!-- ============================================================== -->
+    <!-- Main wrapper -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper" id="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid" id="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <div class="row animated fadeIn" id="ventana1">
+                    <div class="col-12" id="ventana2">
+                        <div class="card m-b-0" id="ventana3">
+                            <!-- .chat-row -->
+                            <div class="chat-main-box" id="ventana4">
+                                <!-- .chat-left-panel -->
+                                <div class="chat-left-aside" id="chat-left-aside">
+                                    <div class="open-panel"><i class="ti-angle-right"></i></div>
+                                    <div class="chat-left-inner" id="chat-left-inner">
+                                        <ul class="chatonline style-none" id="divUsuarios">
+                                        </ul>
+                                    </div>
+                                    <div class="col-8" id="cl-select">
+                                        <p id="p-idioma">Traducir a:</p>
+                                        <select class="form-control" required="" name="idioma" id="idioma">
+                                            <option></option>
+                                            <option>Aleman</option>
+                                            <option>Chino</option>
+                                            <option>Español</option>
+                                            <option>Frances</option>
+                                            <option>Ingles</option>
+                                            <option>Portugues</option>
+                                            <option>Ruso</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- .chat-left-panel -->
+                                <!-- .chat-right-panel -->
+                                <div class="chat-right-aside" id="chat-right-aside">
+                                    <p id="p-nuevaSala">Cambiar de sala:</p>
+                                    <select class="form-control" required="" name="nuevaSala" id="nuevaSala">
+                                        <option></option>
+                                        <option>Argentina</option>
+                                        <option>Brasil</option>
+                                        <option>Chile</option>
+                                        <option>Colombia</option>
+                                        <option>Ecuador</option>
+                                        <option>Paraguay</option>
+                                        <option>Perú</option>
+                                        <option>Venezuela</option>
+                                        <option>Uruguay</option>
+                                    </select>
+                                    <p id="p-nuevaSala">Cambiar nickname:</p>
+                                    <input class="form-control" type="text" required="" placeholder="Nombre de usuario" name="nombre" autocomplete="off" id="nuevoNick">
+                                    <button class="btn btn-primary btn-info" type="submit" id="enviaNNick">Cambiar</button>
+                                    <button class="btn btn-block btn-danger" id="salirSala" type="submit">Salir del chat</button>
+                                    <div class="chat-main-header" id="chat-main-header">
+                                        <div class="p-20 b-b" id="tituloChat">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="chat-rbox">
+                                        <ul class="chat-list p-20" id="divChatbox">
+                                        </ul>
+                                    </div>
+                                    <div class="card-body b-t" id="card-body">
+                                        <form id="formEnviar">
+                                        <div class="row">
+                                            <div class="col-8" id="cl-text-mensaje">
+                                                <input autocomplete="off" id="txtMensaje" placeholder="Escribe un mensaje" class="form-control b-0" autofocus></input>
+                                            </div>
+                                            <div class="col-4 text-right">
+                                                <button type="submit" class="btn btn-info btn-circle btn-lg"><i class="fa fa-paper-plane-o"></i> </button>
+                                            </div>
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <!-- .chat-right-panel -->
+                            </div>
+                            <!-- /.chat-row -->
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <footer class="footer">
+                <p>Traduce Chat | Chat mundial | Chatea gratis y sin registro!</p>
+                <p><span>© </span><span>2019 Traduce Chat </span>All Right Reserved.</p>
+            </footer>
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
     <script src="js/libs/jquery.min.js"></script>
     <script src="socket.io/socket.io.js"></script>
 
-    <script src="js/chat.js"></script>
-
+    <script src="js/socket-chat-jquery.js"></script>
+    <script src="js/socket-chat.js"></script>
 </body>
-
 </html>

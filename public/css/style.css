@@ -5890,7 +5890,7 @@ File: scss
 
   /* 10- 11 */
   #loginBox {
-    top: 45px;
+    top: 5px;
   }
 
   #btIngresar-0 {
@@ -5905,7 +5905,7 @@ File: scss
   #container-fluid {
     height: 100%;
   }
-
+  
   #ventana1 {
     height: 100%;
   }

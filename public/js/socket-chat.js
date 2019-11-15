@@ -51,5 +51,7 @@ socket.on('listaPersona', function(personas) {
 
 // Mensajes privados
 socket.on('mensajePrivado', function(mensaje) {
+	$('#'+mensaje.nombre+'').css('background-color', '#FF4000')
+	$('#'+mensaje.nombre+' span').css('color', 'white');
 	console.log('Mensaje Privado: ', mensaje);
 });
