@@ -14,9 +14,10 @@ var salirSala = $('#salirSala');
 
 // Funciones para renderizar usuarios
 function renderUsuarios(personas) {
+	console.log(personas.sort());
 	var html = '';
 	var html2 = '';
-	var persOrdenadas = personas.sort();
+	var persOrdenadas = ordenarPorClave(personas, "nombre");
 
 	html += '<li>';
     html += 	'<a href="javascript:void(0)" class="active"> Chat de <span> '+ params.get('sala') +'</span></a>';
@@ -24,7 +25,7 @@ function renderUsuarios(personas) {
 
     html2 += '<h3 class="box-title">Sala de chat <small>'+ params.get('sala') +'</small></h3>';
 
-    for(var i = 0; i < persOrdenadas.length; i++) {
+    for(var i = 0; i < personas.length; i++) {
     	var image = 'n';
     	if(persOrdenadas[i].genero === 'Hombre') {
 			image = 'h';
@@ -169,4 +170,11 @@ function traducir(mensaje) {
 		});		
 	//}
 	return mensajeTraducido;
+}
+
+function ordenarPorClave(array, key) {
+    return array.sort(function(a, b) {
+        var x = a[key]; var y = b[key];
+        return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+    });
 }
