@@ -1,3 +1,15 @@
+/**
+ * @fileoverview	./public/js/socket-chat-jquery.js
+ *
+ * @version         1.0
+ *
+ * @author          Nicolás Garcia <nicolasgarciacomp@gmail.com>
+ *
+ * History
+ * v1.0 – Se creó el archivo
+**/
+
+// Declaraciones
 var params = new URLSearchParams(window.location.search);
 var nombre = params.get('nombre');
 var sala = params.get('sala');
@@ -12,15 +24,22 @@ var divChatbox = $('#divChatbox');
 var tituloChat = $('#tituloChat');
 var salirSala = $('#salirSala');
 
-// Funciones para renderizar usuarios
+/**
+ * @name	renderUsuarios
+ *
+ * @description	Renderiza los usuarios en el panel de usuarios activos
+ *
+ * @param	{array}
+ *
+ * @return  {}
+**/
 function renderUsuarios(personas) {
-	console.log(personas.sort());
 	var html = '';
 	var html2 = '';
 	var persOrdenadas = ordenarPorClave(personas, "nombre");
 
 	html += '<li>';
-    html += 	'<a href="javascript:void(0)" class="active"> Chat de <span> '+ params.get('sala') +'</span></a>';
+    html += 	'<a href="javascript:void(0)" class="active"> Chat de <span> '+ params.get('sala') +' ('+ personas.length + ')'+'</span></a>';
     html += '</li>';
 
     html2 += '<h3 class="box-title">Sala de chat <small>'+ params.get('sala') +'</small></h3>';
@@ -41,6 +60,15 @@ function renderUsuarios(personas) {
     divUsuarios.html(html);
 }
 
+/**
+ * @name	renderMensajes
+ *
+ * @description	Renderiza los mensajes en el panel de mensajes
+ *
+ * @param	{string, string}
+ *
+ * @return  {}
+**/
 function renderMensajes(mensaje, yo) {
 	var html = '';
 	var fecha = new Date(mensaje.fecha);
@@ -80,10 +108,19 @@ function renderMensajes(mensaje, yo) {
     divChatbox.append(html);
 }
 
+/**
+ * @name	scrollBottom
+ *
+ * @description	Scroll para los mensajes
+ *
+ * @param	{}
+ *
+ * @return  {}
+**/
 function scrollBottom() {
-    // selectors
+    // Selectores
     var newMessage = divChatbox.children('li:last-child');
-    // heights
+    // Heights
     var clientHeight = divChatbox.prop('clientHeight');
     var scrollTop = divChatbox.prop('scrollTop');
     var scrollHeight = divChatbox.prop('scrollHeight');
@@ -172,6 +209,15 @@ function traducir(mensaje) {
 	return mensajeTraducido;
 }
 
+/**
+ * @name	ordenarPorClave
+ *
+ * @description	Ordena los usuarios por orden alfabetico
+ *
+ * @param	{array, number}
+ *
+ * @return  {array}
+**/
 function ordenarPorClave(array, key) {
     return array.sort(function(a, b) {
         var x = a[key]; var y = b[key];

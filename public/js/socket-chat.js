@@ -1,18 +1,32 @@
-var socket = io();
+/**
+ * @fileoverview	./public/js/socket-chat.js
+ *
+ * @version         1.0
+ *
+ * @author          Nicolás Garcia <nicolasgarciacomp@gmail.com>
+ *
+ * History
+ * v1.0 – Se creó el archivo
+**/
 
+// Definiciones
+var socket = io();
 var params = new URLSearchParams(window.location.search);
 
+// Controlo que haya datos de nombre y sala
 if(!params.has('nombre') || !params.has('sala')) {
 	window.location = 'index.html';
 	throw new Error('El nombre y la sala son necesario');
 }
 
+// Paso datos de usuario nuevo
 var usuario = {
 	nombre: params.get('nombre'),
 	sala: params.get('sala'),
 	genero: params.get('genero')
 };
 
+// Connect
 socket.on('connect', function() {
 	console.log('Conectado al servidor');
 
@@ -45,7 +59,6 @@ socket.on('crearMensaje', function(mensaje) {
 
 // Escuchar cambios de usuarios | entrar - salir |
 socket.on('listaPersona', function(personas) {
-	// console.log(personas);
 	renderUsuarios(personas);
 });
 

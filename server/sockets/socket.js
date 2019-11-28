@@ -1,11 +1,24 @@
+/**
+ * @fileoverview	./server/sockets/socket.js
+ *
+ * @version         1.0
+ *
+ * @author          Nicolás Garcia <nicolasgarciacomp@gmail.com>
+ *
+ * History
+ * v1.0 – Se creó el archivo
+**/
+
+// Requires
 const { io } = require('../server.js');
 const { Usuarios } = require('../classes/usuarios.js');
 const { crearMensaje } = require('../utils/utilidades.js');
 
-const usuarios = new Usuarios();
+const usuarios = new Usuarios(); // Instancia de clase Usuarios
 
+// Todo lo referido a un cliente conectado
 io.on('connection', (client) => {
-
+	// Metodo de ingreso al chat
 	client.on('entrarChat', (data, callback) => {
 		if(!data.nombre || !data.sala) {
 			return callback({
@@ -13,7 +26,7 @@ io.on('connection', (client) => {
 				mensaje: 'El nombre/sala es necesario'
 			});
 		}
-
+		
 		client.join(data.sala);
 
 		usuarios.agregarPersona(client.id, data.nombre, data.sala, data.genero);
@@ -22,6 +35,7 @@ io.on('connection', (client) => {
 		callback(usuarios.getPersonasPorSala(data.sala));
 	});
 
+	// Metodo crear mensaje publico
 	client.on('crearMensaje', (data, callback) => {
 		let persona = usuarios.getPersona(client.id);
 		let mensaje = crearMensaje(persona.nombre, data.mensaje);
@@ -30,6 +44,7 @@ io.on('connection', (client) => {
 		callback(mensaje);
 	});
 
+	// Metodo para la desconexion del cliente
 	client.on('disconnect', () => {
 		let personaBorrada = usuarios.borrarPersona(client.id);
 		client.broadcast.to(personaBorrada.sala).emit('crearMensaje', crearMensaje('Administrador', `${personaBorrada.nombre} ha abandonado el chat`));
@@ -41,5 +56,4 @@ io.on('connection', (client) => {
 		let persona = usuarios.getPersona(client.id);
 		client.broadcast.to(data.para).emit('mensajePrivado', crearMensaje(persona.nombre, data.mensaje));
 	});
-	
 });
