@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- Favicon icon -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<meta name="description" content="Aplicación para chatear con personas de todo el mundo, gratis.">
+    <meta name="author" content="Emiliano Montiel, Jose Reynoso, Nicolas Garcia">
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
     <title>Traduce Chat | Chatea con personas de todo el mundo grátis</title>
-    <!-- Bootstrap Core CSS -->
-    <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!-- page css -->
-    <link href="css/pages/login-register-lock.css" rel="stylesheet">
-    <!-- Custom CSS -->
+
+    <!-- STYLES-->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
     <link href="css/style.css" rel="stylesheet">
-    <!-- You can change the theme colors from here -->
     <link href="css/colors/default-dark.css" id="theme" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+    <link href="css/pages/login-register-lock.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/Footer-Dark.css">
+    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+
+    <!-- FONTS -->
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Covered+By+Your+Grace">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jua">
 </head>
-<body class="card-no-border">
+<body>
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
@@ -35,83 +35,117 @@
             <p class="loader__label">Cargando Chat...</p>
         </div>
     </div>
-    <!-- ============================================================== -->
-    <!-- Main wrapper - style you can find in pages.scss -->
-    <!-- ============================================================== -->
-    <section id="wrapper">
-        <div class="login-register" style="background-image:url(../assets/images/background/login-register.jpg);">
-            <div class="login-box card" id="loginBox">
-                <div class="card-body">
-                    <form class="form-horizontal form-material" id="loginform" action="chat.html">
-                        <h3 class="box-title m-b-20">Bienvenido</h3>
-                        <div class="form-group">
-                            <div class="col-xs-12">
-                                <input class="form-control" type="text" required="" placeholder="Nombre de usuario" name="nombre" autocomplete="off"></div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-xs-12">
-                                <p id="p-sala">Sala:</p>
-                                <select class="form-control" id="s-sala" required="" name="sala">
-                                    <option>Argentina</option>
-                                    <option>Brasil</option>
-                                    <option>Chile</option>
-                                    <option>Colombia</option>
-                                    <option>Ecuador</option>
-                                    <option>Paraguay</option>
-                                    <option>Perú</option>
-                                    <option>Venezuela</option>
-                                    <option>Uruguay</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-xs-12">
-                                <p id="p-genero">Sexo:</p>
-                                <select class="form-control" id="s-sexo" required="" name="genero">
-                                    <option>Hombre</option>
-                                    <option>Mujer</option>
-                                    <option selected>No especificar</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-xs-12">
-                                <input type="checkbox" name="terminos" checked="checked">
-                                <label for="terminos">
-                                    Acepto
-                                    <a href="">los términos y políticas</a>
-                                    .
-                                </label>
-                            </div>
-                        </div>
-                        <div class="form-group text-center" id="btIngresar-0">
-                            <div class="col-xs-12 p-b-20" id="btIngresar-1">
-                                <button class="btn btn-block btn-lg btn-info btn-rounded" type="submit">Ingresar al chat</button>
-                            </div>
-                        </div>
-                    </form>
+    <div>
+        <!-- NAVEGACION -->
+        <div>
+            <nav class="navbar navbar-light navbar-expand-md navigation-clean" style="background-color: rgb(57,57,59);">
+                <div class="container"><a class="navbar-brand" href="#"
+                        style="color: #fbfbff;font-family: Jua, sans-serif;">Traduce Chat
+                        <i class="icon ion-ios-chatbubbles ml-1"></i>
+                    </a>
+                    <button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span
+                            class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navcol-1">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item" role="presentation"><a class="nav-link" href="#">Servicios</a></li>
+                            <li class="nav-item" role="presentation"><a class="nav-link" href="#">Acerca de</a></li>
+                            <li class="nav-item" role="presentation"><a class="nav-link" href="#">Ayuda</a></li>
+                        </ul>
+                    </div>
                 </div>
+            </nav>
+        </div>
+        <!-- FORMULARIO -->
+        <div class="register-photo" style="background-image: url(&quot;assets/img/Sin%20título-1.png&quot;);">
+            <div class="form-container">
+                <form class="shadow-lg" id="loginform" action="chat.html" style="width: 300px;">
+                    <h2 class="text-center"><strong>Bienvenido al chat!</strong></h2>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="nombre" placeholder="Nombre de usuario" autocomplete="off" required>
+                    </div>
+                    <div class="form-group">
+						<p id="p-sala">Sala:</p>
+                        <select class="form-control" id="s-sala" name="sala">                      
+							<option>Argentina</option>
+							<option>Brasil</option>
+							<option>Chile</option>
+							<option>Colombia</option>
+							<option>Ecuador</option>
+							<option>Paraguay</option>
+							<option>Perú</option>
+							<option>Venezuela</option>
+							<option>Uruguay</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+					    <p id="p-genero">Sexo:</p>
+                        <select class="form-control" id="s-sexo" name="genero">
+                            <option>Hombre</option>
+                            <option>Mujer</option>
+                            <option selected>No especificar</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" required>Estoy de acuerdo con los <a href="">términos y condiciones</a>.
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <!-- SUBMIT-->
+                        <button class="btn btn-primary btn-block" type="submit" style="background-color: #b24177;">
+                            Ingresar
+                        </button>
+                    </div>
+                    <p class="already">Chatea en varios idiomas.</p>
+                </form>
             </div>
         </div>
-    </section>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
-    <script src="../assets/plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="../assets/plugins/bootstrap/js/popper.min.js"></script>
-    <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-    <!--Custom JavaScript -->
-    <script type="text/javascript">
-        $(function() {
-            $(".preloader").fadeOut();
-        });
-        $(function() {
-            $('[data-toggle="tooltip"]').tooltip()
-        });
-    </script>
+        <!-- FOOTER -->
+        <div class="footer-dark">
+            <footer>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-3 item">
+                            <h3 style="font-family: Jua, sans-serif;">Servicios</h3>
+                            <ul>
+                                <li><a href="#" style="font-family: Jua, sans-serif;">Diseño Web</a></li>
+                                <li><a href="#" style="font-family: Jua, sans-serif;">Desarrollo</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6 col-md-3 item">
+                            <h3 style="font-family: Jua, sans-serif;">Acerca de</h3>
+                            <ul>
+                                <li><a href="#" style="font-family: Jua, sans-serif;">Traduce Chat</a></li>
+                                <li><a href="#" style="font-family: Jua, sans-serif;">Equipo</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6 item text">
+                            <h3 style="font-family: Jua, sans-serif;">Traduce Chat</h3>
+                            <p style="font-family: Jua, sans-serif;">Praesent sed lobortis mi. Suspendisse vel placerat
+                                ligula. Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique
+                                lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
+                        </div>
+                        <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a
+                                href="#"><i class="icon ion-social-github"></i></a><a href="#"><i
+                                    class="icon ion-social-instagram"></i></a></div>
+                    </div>
+					<p class="copyright">Traduce Chat | Chat mundial | Chatea gratis y sin registro!</p>
+                    <p class="copyright">Traduce Chat © 2019 Todos los derechos reservados.</p>
+                </div>
+            </footer>
+        </div>
+        <script src="../assets/plugins/jquery/jquery.min.js"></script>
+        <script src="../assets/plugins/bootstrap/js/popper.min.js"></script>
+        <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+            $(function() {
+                $(".preloader").fadeOut();
+            });
+            $(function() {
+                $('[data-toggle="tooltip"]').tooltip()
+            });
+        </script>
 </body>
 </html>
