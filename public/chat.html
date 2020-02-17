@@ -11,9 +11,25 @@
     <!-- Page CSS -->
     <link href="css/pages/chat-app-page.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="css/style.css" rel="stylesheet">
     <link href="css/chat.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
+    <!-- STYLES-->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/colors/default-dark.css" id="theme" rel="stylesheet">
+    <link href="css/pages/login-register-lock.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/Footer-Dark.css">
+    <link rel="stylesheet" href="assets/css/Team-Boxed.css">
+    <link rel="stylesheet" href="assets/css/Features-Clean.css">
+    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+
+    <!-- FONTS -->
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Covered+By+Your+Grace">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jua">
 
     <!-- You can change the theme colors from here -->
     <link href="css/colors/default-dark.css" id="theme" rel="stylesheet">
@@ -50,13 +66,13 @@
                                         <p id="p-idioma">Traducir a:</p>
                                         <select class="form-control" required="" name="idioma" id="idioma">
                                             <option></option>
-                                            <option>Alemán</option>
-                                            <option>Chino</option>
-                                            <option>Español</option>
-                                            <option>Francés</option>
-                                            <option>Inglés</option>
-                                            <option>Portugues</option>
-                                            <option>Ruso</option>
+                                            <option value="de">Alemán</option>
+                                            <option value="zh">Chino</option>
+                                            <option value="es">Español</option>
+                                            <option value="fr">Francés</option>
+                                            <option value="en">Inglés</option>
+                                            <option value="pt">Portugues</option>
+                                            <option value="ru">Ruso</option>
                                         </select>
                                     </div>
                                 </div>
@@ -116,12 +132,38 @@
             <!-- End Container fluid  -->
             <!-- ============================================================== -->
             <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
-            <footer class="footer">
-                <p>Traduce Chat | Chat mundial | Chatea gratis y sin registro!</p>
-                <p><span>© </span><span>2019 Traduce Chat </span>All Right Reserved.</p>
-            </footer>
+            <!-- FOOTER -->
+            <div class="footer-dark">
+                <footer>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-6 col-md-3 item">
+                                <h3 style="font-family: Jua, sans-serif;">Producto</h3>
+                                <ul>
+                                    <li><a href="#" style="font-family: Jua, sans-serif;">¿Por qué Traduce Chat?</a></li>
+                                    <li><a href="#" style="font-family: Jua, sans-serif;">Funcionamiento</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-6 col-md-3 item">
+                                <h3 style="font-family: Jua, sans-serif;">Acerca de</h3>
+                                <ul>
+                                    <li><a href="about.html" style="font-family: Jua, sans-serif;">Contacto</a></li>
+                                    <li><a href="about.html" style="font-family: Jua, sans-serif;">Equipo</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6 item text">
+                                <h3 style="font-family: Jua, sans-serif;">Traduce Chat</h3>
+                                <p style="font-family: Jua, sans-serif;">El sitio web que te permite chatear con gente de todo el mundo, en cualquier idioma y en todo momento. Conectate gratis, sin registo y empeza a hacer amigos con Traduce Chat.</p>
+                            </div>
+                            <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a
+                                    href="#"><i class="icon ion-social-github"></i></a><a href="#"><i
+                                        class="icon ion-social-instagram"></i></a></div>
+                        </div>
+                        <p class="copyright">Traduce Chat | Chat mundial | Chatea gratis y sin registro!</p>
+                        <p class="copyright">Traduce Chat © 2019 Todos los derechos reservados.</p>
+                    </div>
+                </footer>
+            </div>
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->
@@ -133,7 +175,9 @@
     <!-- ============================================================== -->
     <!-- End Wrapper -->
     <!-- ============================================================== -->
-    <script src="js/libs/jquery.min.js"></script>
+    <script src="../assets/plugins/jquery/jquery.min.js"></script>
+    <script src="../assets/plugins/bootstrap/js/popper.min.js"></script>
+    <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
     <script src="socket.io/socket.io.js"></script>
 
     <script src="js/socket-chat-jquery.js"></script>

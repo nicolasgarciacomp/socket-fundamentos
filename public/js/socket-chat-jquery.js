@@ -15,6 +15,7 @@ var nombre = params.get('nombre');
 var sala = params.get('sala');
 var genero = params.get('genero');
 var voyATraducir = false;
+var idioma = 'en';
 
 // Referencias de jQuery
 var divUsuarios = $('#divUsuarios');
@@ -165,15 +166,28 @@ formEnviar.on('submit', function(e) {
 		return;
 	}
 
-	//traducir(txtMensaje.val());
-	socket.emit('crearMensaje', {
-		usuario: nombre,
-		mensaje: txtMensaje.val()
-	}, function(mensaje) {
-		txtMensaje.val('').focus();
-		renderMensajes(mensaje, true);
-		scrollBottom();
-	});
+	if(voyATraducir) {
+		traducir(txtMensaje.val())
+	  		.then(data => {
+	  			socket.emit('crearMensaje', {
+					usuario: nombre,
+					mensaje: data[0][0][0]
+				}, function(mensaje) {
+					txtMensaje.val('').focus();
+					renderMensajes(mensaje, true);
+					scrollBottom();
+				});
+	  		}); 
+	} else {
+	  	socket.emit('crearMensaje', {
+			usuario: nombre,
+			mensaje: txtMensaje.val()
+		}, function(mensaje) {
+			txtMensaje.val('').focus();
+			renderMensajes(mensaje, true);
+			scrollBottom();
+		});
+	}
 });
 
 $('#nuevaSala').on('change', function() {
@@ -191,22 +205,17 @@ $('#enviaNNick').on('click', function() {
 });
 
 $('#idioma').on('change', function() {
-	var idioma = this.value;
+	idioma = this.value;
 	console.log(idioma);
 	voyATraducir = true;
 });
 
-function traducir(mensaje) {
-	var mensajeTraducido;
-	//if(idioma === 'Inglés') {
-		var url = "https://translate.googleapis.com/translate_a/single?client=gtx&sl="+ "auto" + "&tl=" + "gente" +"como"+ "andan" + "&dt=t&source=bubble&q=" + encodeURI(mensaje);
+async function traducir(mensaje) {
+	let url = "https://translate.googleapis.com/translate_a/single?client=gtx&sl="+ "auto" + "&tl=" + idioma + "&dt=t&source=bubble&q=" + encodeURI(mensaje);
+	let response = await fetch(url);
+	let data = await response.json();
 
-		$.getJSON(url, function(data) {
-			mensajeTraducido = data[0][0][0];
-			console.log(data[0][0][0]);
-		});		
-	//}
-	return mensajeTraducido;
+	return data;
 }
 
 /**
