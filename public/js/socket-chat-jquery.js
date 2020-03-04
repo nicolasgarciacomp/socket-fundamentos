@@ -21,9 +21,10 @@ var idioma = 'en';
 var divUsuarios = $('#divUsuarios');
 var formEnviar = $('#formEnviar');
 var txtMensaje = $('#txtMensaje');
-var divChatbox = $('#divChatbox');
-var tituloChat = $('#tituloChat');
+var divChatbox = $('#cpestana1');
+var pest1 = $('#pest1');
 var salirSala = $('#salirSala');
+var pestanaEnviar = 'cpestana1';
 
 /**
  * @name	renderUsuarios
@@ -57,7 +58,7 @@ function renderUsuarios(personas) {
     	html += '</li>';
     }
 
-    tituloChat.html(html2);
+    pest1.html(html2);
     divUsuarios.html(html);
 }
 
@@ -106,7 +107,7 @@ function renderMensajes(mensaje, yo) {
 	    html += '</li>';
 	}
 
-    divChatbox.append(html);
+    $('#'+pestanaEnviar).append(html);
 }
 
 /**
@@ -136,6 +137,17 @@ function scrollBottom() {
 // Listeners
 divUsuarios.on('click', 'a', function() {
 	var id = $(this).data('id');
+	var color = $('.'+id+'').css('background-color');
+	if(color == 'rgb(255, 64, 0)') {
+		console.log('E');
+		var nom = $(this)[0]['text'];
+		pestanaEnviar = 'cpestana'+id+'';
+		var nombrePestana = 'pestana'+id;
+		var nuevaPestana = '<li id="pestana'+id+'"><a id="pest'+id+'" href="javascript:cambiarPestana(pestanas, '+nombrePestana+');">'+nom+'</a></li>';
+		var nuevoContenido = '<ul class="chat-list p-20" id="cpestana'+id+'"></ul>';
+		$('#lista').append(nuevaPestana);
+		$('#contenidopestanas').append(nuevoContenido);
+	}
 	if(id) {
 		console.log(id);
 		$('.'+id+'').css('background-color', '#FFF')
@@ -152,6 +164,19 @@ divUsuarios.on('dblclick', 'a', function() {
 			para: id
 		});
 	}
+	var nom = $(this)[0]['text'];
+	pestanaEnviar = 'cpestana'+id+'';
+	var nombrePestana = 'pestana'+id;
+	var nuevaPestana = '<li id="pestana'+id+'"><a id="pest'+id+'" href="javascript:cambiarPestana(pestanas, '+nombrePestana+');">'+nom+'</a></li>';
+	var nuevoContenido = '<ul class="chat-list p-20" id="cpestana'+id+'"></ul>';
+	$('#lista').append(nuevaPestana);
+	$('#contenidopestanas').append(nuevoContenido);
+});
+
+$('#pestanas').on('click', 'a', function() {
+	var id = $(this)[0].id;
+	var idSplit = id.substring(4);
+	pestanaEnviar = 'cpestana'+idSplit+'';
 });
 
 salirSala.on('click', function(e) {
@@ -167,7 +192,7 @@ formEnviar.on('submit', function(e) {
 	}
 
 	if(voyATraducir) {
-		traducir(txtMensaje.val())
+		traducir(txtMensaje.val(), idioma)
 	  		.then(data => {
 	  			socket.emit('crearMensaje', {
 					usuario: nombre,
@@ -206,11 +231,10 @@ $('#enviaNNick').on('click', function() {
 
 $('#idioma').on('change', function() {
 	idioma = this.value;
-	console.log(idioma);
 	voyATraducir = true;
 });
 
-async function traducir(mensaje) {
+async function traducir(mensaje, idioma) {
 	let url = "https://translate.googleapis.com/translate_a/single?client=gtx&sl="+ "auto" + "&tl=" + idioma + "&dt=t&source=bubble&q=" + encodeURI(mensaje);
 	let response = await fetch(url);
 	let data = await response.json();

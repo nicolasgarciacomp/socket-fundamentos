@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="Aplicación para chatear con personas de todo el mundo, gratis.">
+    <meta name="author" content="Emiliano Montiel, Jose Reynoso, Nicolas Garcia">
+    <meta name="keywords" content="Chat, Chatear, Chat Online, Chat Gratis, Traduce Chat"/>
+    <link rel="shortcut icon" href="../assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
     <title>Traduce Chat | Chatea con personas de todo el mundo grátis</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -13,6 +18,7 @@
     <!-- Custom CSS -->
     <link href="css/chat.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
+    <link href="css/pestana.css" rel="stylesheet">
     <!-- STYLES-->
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
@@ -33,8 +39,11 @@
 
     <!-- You can change the theme colors from here -->
     <link href="css/colors/default-dark.css" id="theme" rel="stylesheet">
+
+    <!-- Manejo pestañas -->
+    <script src="js/cambiarPestana.js"></script>
 </head>
-<body class="fix-header single-column card-no-border fix-sidebar">
+<body class="fix-header single-column card-no-border fix-sidebar" onload="javascript:cambiarPestana(pestanas,pestana1);">
     <!-- ============================================================== -->
     <!-- Main wrapper -->
     <!-- ============================================================== -->
@@ -96,13 +105,15 @@
                                     <input class="form-control" type="text" required="" placeholder="Nombre de usuario" name="nombre" autocomplete="off" id="nuevoNick">
                                     <button class="btn btn-primary btn-info" type="submit" id="enviaNNick">Cambiar</button>
                                     <button class="btn btn-block btn-danger" id="salirSala" type="submit">Salir del chat</button>
-                                    <div class="chat-main-header" id="chat-main-header">
-                                        <div class="p-20 b-b" id="tituloChat">
-                                            
+                                    <div class="chat-main-header contenedor" id="chat-main-header">
+                                        <div id="pestanas">
+                                            <ul id=lista>
+                                                <li id="pestana1"><a id="pest1" href='javascript:cambiarPestana(pestanas, pestana1);'></a></li>
+                                            </ul>
                                         </div>
                                     </div>
-                                    <div class="chat-rbox">
-                                        <ul class="chat-list p-20" id="divChatbox">
+                                    <div class="chat-rbox" id="contenidopestanas">
+                                        <ul class="chat-list p-20" id="cpestana1">
                                         </ul>
                                     </div>
                                     <div class="card-body b-t" id="card-body">
