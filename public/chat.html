@@ -10,187 +10,89 @@
     <link rel="shortcut icon" href="../assets/images/favicon.ico" type="image/x-icon">
     <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
     <title>Traduce Chat | Chatea con personas de todo el mundo grátis</title>
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
     <!-- Page CSS -->
-    <link href="css/pages/chat-app-page.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/pages/chat-app-page.css">
     <!-- Custom CSS -->
-    <link href="css/chat.css" rel="stylesheet">
-    <link href="css/animate.css" rel="stylesheet">
-    <link href="css/pestana.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/chat.css">
+    <link rel="stylesheet" href="css/animate.css">
     <!-- STYLES-->
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/colors/default-dark.css" id="theme" rel="stylesheet">
-    <link href="css/pages/login-register-lock.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/colors/default-dark.css" id="theme">
+    <link rel="stylesheet" href="css/pages/login-register-lock.css">
     <link rel="stylesheet" href="assets/css/Footer-Dark.css">
     <link rel="stylesheet" href="assets/css/Team-Boxed.css">
     <link rel="stylesheet" href="assets/css/Features-Clean.css">
     <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
     <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
-    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css">
     <!-- FONTS -->
     <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Covered+By+Your+Grace">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jua">
-
-    <!-- You can change the theme colors from here -->
-    <link href="css/colors/default-dark.css" id="theme" rel="stylesheet">
-
-    <!-- Manejo pestañas -->
-    <script src="js/cambiarPestana.js"></script>
 </head>
-<body class="fix-header single-column card-no-border fix-sidebar" onload="javascript:cambiarPestana(pestanas,pestana1);">
-    <!-- ============================================================== -->
-    <!-- Main wrapper -->
-    <!-- ============================================================== -->
-    <div id="main-wrapper">
-        <!-- ============================================================== -->
-        <!-- Page wrapper  -->
-        <!-- ============================================================== -->
-        <div class="page-wrapper" id="page-wrapper">
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
-            <div class="container-fluid" id="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
-                <!-- ============================================================== -->
-                <div class="row animated fadeIn" id="ventana1">
-                    <div class="col-12" id="ventana2">
-                        <div class="card m-b-0" id="ventana3">
-                            <!-- .chat-row -->
-                            <div class="chat-main-box" id="ventana4">
-                                <!-- .chat-left-panel -->
-                                <div class="chat-left-aside" id="chat-left-aside">
-                                    <div class="open-panel"><i class="ti-angle-right"></i></div>
-                                    <div class="chat-left-inner" id="chat-left-inner">
-                                        <ul class="chatonline style-none" id="divUsuarios">
-                                        </ul>
-                                    </div>
-                                    <div class="col-8" id="cl-select">
-                                        <p id="p-idioma">Traducir a:</p>
-                                        <select class="form-control" required="" name="idioma" id="idioma">
-                                            <option></option>
-                                            <option value="de">Alemán</option>
-                                            <option value="zh">Chino</option>
-                                            <option value="es">Español</option>
-                                            <option value="fr">Francés</option>
-                                            <option value="en">Inglés</option>
-                                            <option value="pt">Portugues</option>
-                                            <option value="ru">Ruso</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <!-- .chat-left-panel -->
-                                <!-- .chat-right-panel -->
-                                <div class="chat-right-aside" id="chat-right-aside">
-                                    <p id="p-nuevaSala">Cambiar de sala:</p>
-                                    <select class="form-control" required="" name="nuevaSala" id="nuevaSala">
-                                        <option></option>
-                                        <option>Argentina</option>
-                                        <option>Brasil</option>
-                                        <option>Chile</option>
-                                        <option>Colombia</option>
-                                        <option>Ecuador</option>
-                                        <option>Paraguay</option>
-                                        <option>Perú</option>
-                                        <option>Venezuela</option>
-                                        <option>Uruguay</option>
-                                    </select>
-                                    <p id="p-nuevaSala">Cambiar nombre:</p>
-                                    <input class="form-control" type="text" required="" placeholder="Nombre de usuario" name="nombre" autocomplete="off" id="nuevoNick">
-                                    <button class="btn btn-primary btn-info" type="submit" id="enviaNNick">Cambiar</button>
-                                    <button class="btn btn-block btn-danger" id="salirSala" type="submit">Salir del chat</button>
-                                    <div class="chat-main-header contenedor" id="chat-main-header">
-                                        <div id="pestanas">
-                                            <ul id=lista>
-                                                <li id="pestana1"><a id="pest1" href='javascript:cambiarPestana(pestanas, pestana1);'></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="chat-rbox" id="contenidopestanas">
-                                        <ul class="chat-list p-20" id="cpestana1">
-                                        </ul>
-                                    </div>
-                                    <div class="card-body b-t" id="card-body">
-                                        <form id="formEnviar">
-                                        <div class="row">
-                                            <div class="col-8" id="cl-text-mensaje">
-                                                <input autocomplete="off" id="txtMensaje" placeholder="Escribe un mensaje" class="form-control b-0" autofocus></input>
-                                            </div>
-                                            <div class="col-4 text-right">
-                                                <button type="submit" class="btn btn-info btn-circle btn-lg"><i class="fa fa-paper-plane-o"></i> </button>
-                                            </div>
-                                        </div>
-                                        </form>
-                                    </div>
-                                </div>
-                                <!-- .chat-right-panel -->
-                            </div>
-                            <!-- /.chat-row -->
-                        </div>
+<body>
+    <!-- NAVEGACION -->
+    <div>
+        <nav class="navbar navbar-light navbar-expand-md navigation-clean" style="background-color: rgb(57,57,59);">
+            <div class="container"><a class="navbar-brand" href="index.html"
+                    style="color: #fbfbff; font-family: Jua, sans-serif;">Traduce Chat
+                    <i class="icon ion-ios-chatbubbles ml-1"></i>
+                </a>
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span
+                        class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Acerca de</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Ayuda</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="container main-conteiner">
+        <div class="chat-window">
+            <div id="cabecera">
+            </div>
+            <hr>
+            <div class="app-mensajes" id="app-mensajes">
+                <div class="text-right">
+                    <span class="badge badge-primary">Nicolas</span>
+                    <p>Este es un mensaje</p>
+                </div>
+                <div>
+                    <span class="badge badge-success">Nicolas</span>
+                    <p>Este es un mensaje</p>
+                </div>
+            </div>
+            <hr>
+            <form id="formEnviar">
+                <div class="row">
+                    <div class="col-8" id="cl-text-mensaje">
+                        <input autocomplete="off" id="txtMensaje" placeholder="Escribe un mensaje" class="form-control b-0" autofocus></input>
+                    </div>
+                    <div class="col-4 text-right">
+                        <button type="submit" class="btn btn-info btn-circle btn-lg"><i class="fa fa-paper-plane-o"></i> </button>
                     </div>
                 </div>
-                <!-- ============================================================== -->
-                <!-- End PAge Content -->
-                <!-- ============================================================== -->
-            </div>
-            <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- FOOTER -->
-            <div class="footer-dark">
-                <footer>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-6 col-md-3 item">
-                                <h3 style="font-family: Jua, sans-serif;">Producto</h3>
-                                <ul>
-                                    <li><a href="#" style="font-family: Jua, sans-serif;">¿Por qué Traduce Chat?</a></li>
-                                    <li><a href="#" style="font-family: Jua, sans-serif;">Funcionamiento</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-sm-6 col-md-3 item">
-                                <h3 style="font-family: Jua, sans-serif;">Acerca de</h3>
-                                <ul>
-                                    <li><a href="about.html" style="font-family: Jua, sans-serif;">Contacto</a></li>
-                                    <li><a href="about.html" style="font-family: Jua, sans-serif;">Equipo</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6 item text">
-                                <h3 style="font-family: Jua, sans-serif;">Traduce Chat</h3>
-                                <p style="font-family: Jua, sans-serif;">El sitio web que te permite chatear con gente de todo el mundo, en cualquier idioma y en todo momento. Conectate gratis, sin registo y empeza a hacer amigos con Traduce Chat.</p>
-                            </div>
-                            <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a
-                                    href="#"><i class="icon ion-social-github"></i></a><a href="#"><i
-                                        class="icon ion-social-instagram"></i></a></div>
-                        </div>
-                        <p class="copyright">Traduce Chat | Chat mundial | Chatea gratis y sin registro!</p>
-                        <p class="copyright">Traduce Chat © 2019 Todos los derechos reservados.</p>
-                    </div>
-                </footer>
-            </div>
-            <!-- ============================================================== -->
-            <!-- End footer -->
-            <!-- ============================================================== -->
+            </form>
         </div>
-        <!-- ============================================================== -->
-        <!-- End Page wrapper  -->
-        <!-- ============================================================== -->
     </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
+    <!-- FOOTER -->
+    <div class="footer-dark">
+        <footer>
+            <div class="container">
+                <p class="copyright">Traduce Chat | Chat mundial | Chatea gratis y sin registro!</p>
+                <p class="copyright">Traduce Chat © 2019 Todos los derechos reservados.</p>
+            </div>
+        </footer>
+    </div>
     <script src="../assets/plugins/jquery/jquery.min.js"></script>
     <script src="../assets/plugins/bootstrap/js/popper.min.js"></script>
     <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
     <script src="socket.io/socket.io.js"></script>
-
     <script src="js/socket-chat-jquery.js"></script>
     <script src="js/socket-chat.js"></script>
 </body>

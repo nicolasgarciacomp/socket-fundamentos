@@ -21,10 +21,9 @@ var idioma = 'en';
 var divUsuarios = $('#divUsuarios');
 var formEnviar = $('#formEnviar');
 var txtMensaje = $('#txtMensaje');
-var divChatbox = $('#cpestana1');
-var pest1 = $('#pest1');
+var divChatbox = $('#app-mensajes');
 var salirSala = $('#salirSala');
-var pestanaEnviar = 'cpestana1';
+var cabecera = $('#cabecera');
 
 /**
  * @name	renderUsuarios
@@ -40,9 +39,11 @@ function renderUsuarios(personas) {
 	var html2 = '';
 	var persOrdenadas = ordenarPorClave(personas, "nombre");
 
+	/*
 	html += '<li>';
     html += 	'<a href="javascript:void(0)" class="active"> Chat de <span> '+ params.get('sala') +' ('+ personas.length + ')'+'</span></a>';
-    html += '</li>';
+	html += '</li>';
+	*/
 
     html2 += '<h3 class="box-title">Sala de chat <small>'+ params.get('sala') +'</small></h3>';
 
@@ -58,8 +59,8 @@ function renderUsuarios(personas) {
     	html += '</li>';
     }
 
-    pest1.html(html2);
-    divUsuarios.html(html);
+    cabecera.html(html2);
+    //divUsuarios.html(html);
 }
 
 /**
@@ -86,28 +87,28 @@ function renderMensajes(mensaje, yo) {
 	}
 
 	if(yo) {
-		html += '<li class="reverse">';
-	    html += 	'<div class="chat-content">';
-	    html += 		'<h5>'+ mensaje.nombre +'</h5>';
-	    html += 		'<div class="box bg-light-inverse">'+ mensaje.mensaje +'</div>';
-	    html += 	'</div>';
+		html += '<li class="reverse" style="list-style:none;">';
+		html += '<div class="text-right">';
+		html += '	<span class="badge badge-primary">'+ mensaje.nombre +'</span>';
+		html += '	<p>'+ mensaje.mensaje +'</p>';
+		html += '</div>';
 	    // html += 	'<div class="chat-img"><img src="assets/images/users/'+ image +'.jpg" alt="user" /></div>';
-	    html += 	'<div class="chat-time">'+ hora +'</div>';
+	    html += '<div class="chat-time text-right">'+ hora +'</div>';
 	    html += '</li>';
 	} else {
-		html += '<li class="animated fadeIn">';
+		html += '<li class="animated fadeIn" style="list-style:none;">';
 		if(mensaje.nombre !== 'Administrador') {
 			// html +=     '<div class="chat-img"><img src="assets/images/users/1.jpg" alt="user" /></div>';
 		}
-		html +=     '<div class="chat-content">';
-	    html +=     	'<h5>'+ mensaje.nombre +'</h5>';
-	    html +=     	'<div class="box bg-light-'+ adminClass +'">'+ mensaje.mensaje +'</div>';
-	    html +=     '</div>';
-	    html +=     '<div class="chat-time">'+ hora +'</div>';
+		html += '<div>';
+		html += '	<span class="badge badge-success">'+ mensaje.nombre +'</span>';
+		html += '	<p>'+ mensaje.mensaje +'</p>';
+		html += '</div>';
+	    html += '<div class="chat-time">'+ hora +'</div>';
 	    html += '</li>';
 	}
 
-    $('#'+pestanaEnviar).append(html);
+    $(divChatbox).append(html);
 }
 
 /**
@@ -133,51 +134,6 @@ function scrollBottom() {
         divChatbox.scrollTop(scrollHeight);
     }
 }
-
-// Listeners
-divUsuarios.on('click', 'a', function() {
-	var id = $(this).data('id');
-	var color = $('.'+id+'').css('background-color');
-	if(color == 'rgb(255, 64, 0)') {
-		console.log('E');
-		var nom = $(this)[0]['text'];
-		pestanaEnviar = 'cpestana'+id+'';
-		var nombrePestana = 'pestana'+id;
-		var nuevaPestana = '<li id="pestana'+id+'"><a id="pest'+id+'" href="javascript:cambiarPestana(pestanas, '+nombrePestana+');">'+nom+'</a></li>';
-		var nuevoContenido = '<ul class="chat-list p-20" id="cpestana'+id+'"></ul>';
-		$('#lista').append(nuevaPestana);
-		$('#contenidopestanas').append(nuevoContenido);
-	}
-	if(id) {
-		console.log(id);
-		$('.'+id+'').css('background-color', '#FFF')
-		$('.'+id+' span').css('color', '#67757c');
-	}
-});
-
-divUsuarios.on('dblclick', 'a', function() {
-	var id = $(this).data('id');
-	if(id) {
-		console.log(id);
-		socket.emit('mensajePrivado', {
-			mensaje: txtMensaje.val(),
-			para: id
-		});
-	}
-	var nom = $(this)[0]['text'];
-	pestanaEnviar = 'cpestana'+id+'';
-	var nombrePestana = 'pestana'+id;
-	var nuevaPestana = '<li id="pestana'+id+'"><a id="pest'+id+'" href="javascript:cambiarPestana(pestanas, '+nombrePestana+');">'+nom+'</a></li>';
-	var nuevoContenido = '<ul class="chat-list p-20" id="cpestana'+id+'"></ul>';
-	$('#lista').append(nuevaPestana);
-	$('#contenidopestanas').append(nuevoContenido);
-});
-
-$('#pestanas').on('click', 'a', function() {
-	var id = $(this)[0].id;
-	var idSplit = id.substring(4);
-	pestanaEnviar = 'cpestana'+idSplit+'';
-});
 
 salirSala.on('click', function(e) {
 	socket.emit('disconnect');
