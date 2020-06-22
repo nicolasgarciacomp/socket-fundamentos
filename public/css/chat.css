@@ -13,11 +13,10 @@ textarea {
     width: 100%;
 }
 
-/*
-#txtMensaje, #cl-text-mensaje {
-	width: 870px;
-}
-*/
+/*#txtMensaje, #cl-text-mensaje {
+	width: 600px;
+	float: auto;
+}*/
 
 #nuevaSala {
 	margin-top: 10px;
@@ -58,7 +57,7 @@ textarea {
 }
 
 #idioma {
-	width: 150px;
+	width: 120px;
 }
 
 #cl-select {
@@ -78,7 +77,7 @@ textarea {
 .chat-window{
 	padding: 10px;
 	/*width: 300px;*/
-	height: 500px;
+	height: 550px;
 	overflow: hidden;
 	/*border: 1px solid #4080FF;*/
 	/*border-radius: 20px;*/
@@ -86,7 +85,7 @@ textarea {
 
 .app-mensajes{
 	overflow-y: scroll;
-	height: 270px;
+	height: 370px;
 	/*background:gray;*/
 	padding: 5px;
 }

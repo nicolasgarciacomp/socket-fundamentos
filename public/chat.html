@@ -70,11 +70,23 @@
             <hr>
             <form id="formEnviar">
                 <div class="row">
-                    <div class="col-8" id="cl-text-mensaje">
+                    <div class="col-6" id="cl-text-mensaje">
                         <input autocomplete="off" id="txtMensaje" placeholder="Escribe un mensaje" class="form-control b-0" autofocus></input>
                     </div>
+                    <div class="col-2 text-right">
+                        <select class="form-control" required="" name="idioma" id="idioma">
+                            <option selected>Traducir</option>
+                            <option value="de">Alemán</option>
+                            <option value="zh">Chino</option>
+                            <option value="es">Español</option>
+                            <option value="fr">Francés</option>
+                            <option value="en">Inglés</option>
+                            <option value="pt">Portugues</option>
+                            <option value="ru">Ruso</option>
+                        </select>
+                    </div>
                     <div class="col-4 text-right">
-                        <button type="submit" class="btn btn-info btn-circle btn-lg"><i class="fa fa-paper-plane-o"></i> </button>
+                        <button type="submit" class="btn btn-info btn-circle btn-lg"><i class="fa fa-paper-plane-o"></i></button>
                     </div>
                 </div>
             </form>
