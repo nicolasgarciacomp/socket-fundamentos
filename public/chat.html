@@ -45,6 +45,22 @@
                         class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navcol-1">
                     <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item" role="presentation" style="margin-right: 5px;">
+                            <select class="form-control" required="" name="nuevaSala" id="nuevaSala">
+                                <option selected>Cambiar sala...</option>
+                                <option>Argentina</option>
+                                <option>Brasil</option>
+                                <option>Chile</option>
+                                <option>Colombia</option>
+                                <option>Ecuador</option>
+                                <option>Paraguay</option>
+                                <option>Perú</option>
+                                <option>Venezuela</option>
+                                <option>Uruguay</option>
+                            </select>
+                        </li>
+                        <li class="nav-item" role="presentation"><input class="form-control" type="text" required="" placeholder="Nuevo nombre" name="nombre" autocomplete="off" id="nuevoNick"></li>
+                        <li class="nav-item" role="presentation"><button class="btn btn-primary btn-info" type="submit" id="enviaNNick">Cambiar</button></li>
                         <li class="nav-item" role="presentation"><a class="nav-link" href="#">Acerca de</a></li>
                         <li class="nav-item" role="presentation"><a class="nav-link" href="#">Ayuda</a></li>
                     </ul>
@@ -73,6 +89,7 @@
                             <option value="es">Español</option>
                             <option value="fr">Francés</option>
                             <option value="en">Inglés</option>
+                            <option value="it">Italiano</option>
                             <option value="pt">Portugues</option>
                             <option value="ru">Ruso</option>
                         </select>
@@ -84,7 +101,7 @@
             </form>
         </div>
     </div>
-    <!-- FOOTER -->
+    <!-- FOOTER 
     <div class="footer-dark">
         <footer>
             <div class="container">
@@ -92,7 +109,7 @@
                 <p class="copyright">Traduce Chat © 2019 Todos los derechos reservados.</p>
             </div>
         </footer>
-    </div>
+    </div> -->
     <script src="../assets/plugins/jquery/jquery.min.js"></script>
     <script src="../assets/plugins/bootstrap/js/popper.min.js"></script>
     <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>

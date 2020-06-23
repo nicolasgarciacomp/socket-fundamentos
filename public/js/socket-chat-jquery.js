@@ -80,11 +80,6 @@ function renderMensajes(mensaje, yo) {
 		minutos = '0' + minutos;
 	}
 	var hora = fecha.getHours() + ':' + minutos;
-	var adminClass = 'info';
-
-	if(mensaje.nombre === 'Administrador') {
-		adminClass = 'danger';
-	}
 
 	if(yo) {
 		html += '<li class="reverse" style="list-style:none;">';
@@ -98,14 +93,20 @@ function renderMensajes(mensaje, yo) {
 	} else {
 		html += '<li class="animated fadeIn" style="list-style:none;">';
 		if(mensaje.nombre !== 'Administrador') {
-			// html +=     '<div class="chat-img"><img src="assets/images/users/1.jpg" alt="user" /></div>';
+			html += '<div>';
+			html += '	<span class="badge badge-success">'+ mensaje.nombre +'</span>';
+			html += '	<p>'+ mensaje.mensaje +'</p>';
+			html += '</div>';
+			html += '<div class="chat-time">'+ hora +'</div>';
+			html += '</li>';
+		} else {
+			html += '<div>';
+			html += '	<span class="badge badge-secondary">'+ mensaje.nombre +'</span>';
+			html += '	<p>'+ mensaje.mensaje +'</p>';
+			html += '</div>';
+			html += '<div class="chat-time">'+ hora +'</div>';
+			html += '</li>';
 		}
-		html += '<div>';
-		html += '	<span class="badge badge-success">'+ mensaje.nombre +'</span>';
-		html += '	<p>'+ mensaje.mensaje +'</p>';
-		html += '</div>';
-	    html += '<div class="chat-time">'+ hora +'</div>';
-	    html += '</li>';
 	}
 
     $(divChatbox).append(html);
