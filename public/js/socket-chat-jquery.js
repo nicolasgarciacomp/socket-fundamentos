@@ -18,7 +18,7 @@ var voyATraducir = false;
 var idioma = 'en';
 
 // Referencias de jQuery
-var divUsuarios = $('#divUsuarios');
+var divUsuarios = $('#lista-users');
 var formEnviar = $('#formEnviar');
 var txtMensaje = $('#txtMensaje');
 var divChatbox = $('#app-mensajes');
@@ -38,13 +38,7 @@ function renderUsuarios(personas) {
 	var html = '';
 	var html2 = '';
 	var persOrdenadas = ordenarPorClave(personas, "nombre");
-
-	/*
-	html += '<li>';
-    html += 	'<a href="javascript:void(0)" class="active"> Chat de <span> '+ params.get('sala') +' ('+ personas.length + ')'+'</span></a>';
-	html += '</li>';
-	*/
-
+	
     html2 += '<h3 class="box-title">Sala de chat <small>'+ params.get('sala') +'</small></h3>';
 
     for(var i = 0; i < personas.length; i++) {
@@ -54,13 +48,13 @@ function renderUsuarios(personas) {
 		} else if(persOrdenadas[i].genero === 'Mujer') {
 			image = 'm';
 		}
-    	html += '<li class="'+ persOrdenadas[i].id +'" id="'+ persOrdenadas[i].nombre +'">';
-        html +=		'<a data-id="'+ persOrdenadas[i].id +'" href="javascript:void(0)"><img src="assets/images/users/'+ image +'.jpg" alt="user-img" class="img-circle"> <span>'+ persOrdenadas[i].nombre +'<small class="text-success">online</small></span></a>';
+    	html += '<li id="'+ persOrdenadas[i].nombre +'" style="list-style:none;">';
+        html +=		'<a data-id="'+ persOrdenadas[i].id +'" href="javascript:void(0)"><alt="user-img" class="list-group-item list-group-item-action"><span>'+ persOrdenadas[i].nombre +'</span></a>';
     	html += '</li>';
     }
 
     cabecera.html(html2);
-    //divUsuarios.html(html);
+    divUsuarios.html(html);
 }
 
 /**
