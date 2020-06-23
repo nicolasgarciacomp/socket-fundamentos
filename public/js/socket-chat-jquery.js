@@ -18,7 +18,7 @@ var voyATraducir = false;
 var idioma = 'en';
 
 // Referencias de jQuery
-var divUsuarios = $('#lista-users');
+var divUsuarios = $('#navbarWEX');
 var formEnviar = $('#formEnviar');
 var txtMensaje = $('#txtMensaje');
 var divChatbox = $('#app-mensajes');
@@ -48,9 +48,8 @@ function renderUsuarios(personas) {
 		} else if(persOrdenadas[i].genero === 'Mujer') {
 			image = 'm';
 		}
-    	html += '<li id="'+ persOrdenadas[i].nombre +'" style="list-style:none;">';
-        html +=		'<a data-id="'+ persOrdenadas[i].id +'" href="javascript:void(0)"><alt="user-img" class="list-group-item list-group-item-action"><span>'+ persOrdenadas[i].nombre +'</span></a>';
-    	html += '</li>';
+
+		html += '<a class="dropdown-item" href="#">'+ persOrdenadas[i].nombre +' '+'<small class="text-success">online</small></a>';
     }
 
     cabecera.html(html2);
