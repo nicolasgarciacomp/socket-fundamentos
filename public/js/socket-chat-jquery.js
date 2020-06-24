@@ -184,6 +184,15 @@ $('#idioma').on('change', function() {
 	voyATraducir = true;
 });
 
+/**
+ * @name	traducir
+ *
+ * @description	Traduce el mensaje en otro idioma
+ *
+ * @param	{string, string}
+ *
+ * @return  {object}
+**/
 async function traducir(mensaje, idioma) {
 	let url = "https://translate.googleapis.com/translate_a/single?client=gtx&sl="+ "auto" + "&tl=" + idioma + "&dt=t&source=bubble&q=" + encodeURI(mensaje);
 	let response = await fetch(url);
